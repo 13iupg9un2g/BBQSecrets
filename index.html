@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BBQ Secrets — Лучшие Маринады для Гриля</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>BBQ Secrets — Лучшие Маринады для Гриля</h1>
+      <p>Добро пожаловать! Все маринады безопасны и проверены!</p>
+    </header>
+
+    <!-- Выбор животных -->
+    <section id="animals-section">
+      <h2>Выберите вид мяса</h2>
+      <div id="animals-container" class="cards-container"></div>
+    </section>
+
+    <!-- Выбор частей -->
+    <section id="parts-section" class="hidden">
+      <button id="back-to-animals" class="btn-back">&larr; Назад к видам мяса</button>
+      <h2>Выберите часть мяса</h2>
+      <div id="parts-container" class="cards-container"></div>
+    </section>
+
+    <!-- Выбор маринада -->
+    <section id="marinades-section" class="hidden">
+      <button id="back-to-parts" class="btn-back">&larr; Назад к частям мяса</button>
+      <h2>Выберите тип маринада</h2>
+      <div id="marinades-container">
+        <button data-type="sour" class="marinade-btn">Кислый</button>
+        <button data-type="sweet" class="marinade-btn">Сладкий</button>
+        <button data-type="spicy" class="marinade-btn">Острый</button>
+      </div>
+    </section>
+
+    <!-- Рецепт -->
+    <section id="recipe-section" class="hidden">
+      <button id="back-to-marinades" class="btn-back">&larr; Назад к типам маринада</button>
+      <div id="recipe-content"></div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
