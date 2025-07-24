@@ -2,112 +2,97 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="IJSty8X8mF4-dQIcNW7WQOOeVeMfj3aae6nhEThypRM" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BBQ Secrets — Лучшие Маринады для Гриля</title>
+  <title>BBQSecrets — Домашняя страница</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      margin: 0; 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #4b2e05, #f4a261);
-      color: #fff;
-    }
-    header {
-      text-align: center;
-      padding: 30px 10px;
-      background: rgba(0,0,0,0.4);
-    }
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 5px #000;
-    }
-    header p {
-      font-size: 1.2em;
-      font-style: italic;
-    }
-    main {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #b5f7c9, #e0ffe0);
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      padding: 30px 10px;
-      gap: 20px;
-    }
-    .meat-card {
-      background: rgba(255, 140, 0, 0.8);
-      border-radius: 15px;
-      width: 160px;
-      height: 160px;
-      cursor: pointer;
-      box-shadow: 0 10px 15px rgba(0,0,0,0.4);
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
+      height: 100vh;
     }
-    .meat-card:hover {
-      transform: perspective(400px) rotateX(10deg) rotateY(10deg) scale(1.05);
+
+    .selector {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
-    .meat-card img {
-      max-width: 100px;
-      margin-bottom: 15px;
+
+    .selector h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #2b2b2b;
     }
-    .meat-card span {
-      font-weight: bold;
+
+    .selector button {
+      background: #32a852;
+      color: white;
+      border: none;
+      padding: 15px 30px;
       font-size: 1.2em;
-      text-shadow: 1px 1px 3px #000;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .selector button:hover {
+      background: #289447;
+      transform: scale(1.05);
+    }
+
+    .salad-list {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .salad-list h2 {
+      font-size: 1.5em;
+      color: #333;
+    }
+
+    .salad-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .salad-list li {
+      margin-bottom: 8px;
+      font-size: 1.1em;
     }
   </style>
 </head>
 <body>
+  <div class="selector">
+    <h1>BBQSecrets</h1>
+    <button onclick="window.location.href='meat.html'">🍖 Перейти к мясу</button>
+    <button onclick="showSalads()">🥗 Посмотреть салаты</button>
 
-<header>
-  <h1>BBQ Secrets — Лучшие Маринады для Гриля</h1>
-  <p>Добро пожаловать! Весь маринад — для гриля. Все рецепты безопасные и проверенные!</p>
-</header>
+    <div id="salad-section" class="salad-list" style="display:none">
+      <h2>Интересные салаты:</h2>
+      <ul>
+        <li>🥬 Цезарь с курицей</li>
+        <li>🍅 Греческий с фетой и оливками</li>
+        <li>🥭 Салат с манго и креветками</li>
+        <li>🎃 С печёной тыквой и фетой</li>
+        <li>🥑 Киноа с авокадо и шпинатом</li>
+        <li>🧄 Салат с рукколой, грушей и пармезаном</li>
+      </ul>
+    </div>
+  </div>
 
-<main>
-  <div class="meat-card" onclick="showParts('chicken')">
-    <img src="https://img.icons8.com/ios-filled/100/ffffff/chicken-leg.png" alt="Курица" />
-    <span>Курица</span>
-  </div>
-  <div class="meat-card" onclick="showParts('beef')">
-    <img src="https://img.icons8.com/ios-filled/100/ffffff/steak.png" alt="Говядина" />
-    <span>Говядина</span>
-  </div>
-  <div class="meat-card" onclick="showParts('pork')">
-    <img src="https://img.icons8.com/ios-filled/100/ffffff/pork.png" alt="Свинина" />
-    <span>Свинина</span>
-  </div>
-  <div class="meat-card" onclick="showParts('turkey')">
-    <img src="https://img.icons8.com/ios-filled/100/ffffff/turkey.png" alt="Индейка" />
-    <span>Индейка</span>
-  </div>
-  <div class="meat-card" onclick="showParts('lamb')">
-    <img src="https://img.icons8.com/ios-filled/100/ffffff/lamb.png" alt="Баранина" />
-    <span>Баранина</span>
-  </div>
-  <div class="meat-card" onclick="showParts('fish')">
-    <img src="https://img.icons8.com/ios-filled/100/ffffff/fish.png" alt="Рыба" />
-    <span>Рыба</span>
-  </div>
-</main>
-
-<script>
-  const partsData = {
-    chicken: ['Крылышки', 'Филе (грудка)', 'Бедро', 'Голень'],
-    beef: ['Ребра', 'Вырезка (филе)', 'Лопатка', 'Антрекот'],
-    pork: ['Ребрышки', 'Лопатка', 'Шея', 'Жирок', 'Корейка'],
-    turkey: ['Филе', 'Бедро', 'Голень', 'Крыло'],
-    lamb: ['Ребрышки', 'Лопатка', 'Корейка', 'Шея'],
-    fish: ['Филе', 'Целая рыба']
-  };
-
-  function showParts(meat) {
-    alert('Здесь будет выбор частей для ' + meat + ':\n' + partsData[meat].join(', '));
-  }
-</script>
-
+  <script>
+    function showSalads() {
+      document.getElementById('salad-section').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
+
