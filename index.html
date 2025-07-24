@@ -5,50 +5,109 @@
   <meta name="google-site-verification" content="IJSty8X8mF4-dQIcNW7WQOOeVeMfj3aae6nhEThypRM" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BBQ Secrets — Лучшие Маринады для Гриля</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #4b2e05, #f4a261);
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 30px 10px;
+      background: rgba(0,0,0,0.4);
+    }
+    header h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px #000;
+    }
+    header p {
+      font-size: 1.2em;
+      font-style: italic;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 10px;
+      gap: 20px;
+    }
+    .meat-card {
+      background: rgba(255, 140, 0, 0.8);
+      border-radius: 15px;
+      width: 160px;
+      height: 160px;
+      cursor: pointer;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .meat-card:hover {
+      transform: perspective(400px) rotateX(10deg) rotateY(10deg) scale(1.05);
+    }
+    .meat-card img {
+      max-width: 100px;
+      margin-bottom: 15px;
+    }
+    .meat-card span {
+      font-weight: bold;
+      font-size: 1.2em;
+      text-shadow: 1px 1px 3px #000;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container">
+<header>
+  <h1>BBQ Secrets — Лучшие Маринады для Гриля</h1>
+  <p>Добро пожаловать! Весь маринад — для гриля. Все рецепты безопасные и проверенные!</p>
+</header>
 
-    <header>
-      <h1>BBQ Secrets — Лучшие Маринады для Гриля</h1>
-      <p>Добро пожаловать! Все маринады безопасны и проверены!</p>
-    </header>
-
-    <!-- Выбор животных -->
-    <section id="animals-section">
-      <h2>Выберите вид мяса</h2>
-      <div id="animals-container" class="cards-container"></div>
-    </section>
-
-    <!-- Выбор частей -->
-    <section id="parts-section" class="hidden">
-      <button id="back-to-animals" class="btn-back">&larr; Назад к видам мяса</button>
-      <h2>Выберите часть мяса</h2>
-      <div id="parts-container" class="cards-container"></div>
-    </section>
-
-    <!-- Выбор маринада -->
-    <section id="marinades-section" class="hidden">
-      <button id="back-to-parts" class="btn-back">&larr; Назад к частям мяса</button>
-      <h2>Выберите тип маринада</h2>
-      <div id="marinades-container">
-        <button data-type="sour" class="marinade-btn">Кислый</button>
-        <button data-type="sweet" class="marinade-btn">Сладкий</button>
-        <button data-type="spicy" class="marinade-btn">Острый</button>
-      </div>
-    </section>
-
-    <!-- Рецепт -->
-    <section id="recipe-section" class="hidden">
-      <button id="back-to-marinades" class="btn-back">&larr; Назад к типам маринада</button>
-      <div id="recipe-content"></div>
-    </section>
-
+<main>
+  <div class="meat-card" onclick="showParts('chicken')">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/chicken-leg.png" alt="Курица" />
+    <span>Курица</span>
   </div>
+  <div class="meat-card" onclick="showParts('beef')">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/steak.png" alt="Говядина" />
+    <span>Говядина</span>
+  </div>
+  <div class="meat-card" onclick="showParts('pork')">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/pork.png" alt="Свинина" />
+    <span>Свинина</span>
+  </div>
+  <div class="meat-card" onclick="showParts('turkey')">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/turkey.png" alt="Индейка" />
+    <span>Индейка</span>
+  </div>
+  <div class="meat-card" onclick="showParts('lamb')">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/lamb.png" alt="Баранина" />
+    <span>Баранина</span>
+  </div>
+  <div class="meat-card" onclick="showParts('fish')">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/fish.png" alt="Рыба" />
+    <span>Рыба</span>
+  </div>
+</main>
 
-  <script src="script.js"></script>
+<script>
+  const partsData = {
+    chicken: ['Крылышки', 'Филе (грудка)', 'Бедро', 'Голень'],
+    beef: ['Ребра', 'Вырезка (филе)', 'Лопатка', 'Антрекот'],
+    pork: ['Ребрышки', 'Лопатка', 'Шея', 'Жирок', 'Корейка'],
+    turkey: ['Филе', 'Бедро', 'Голень', 'Крыло'],
+    lamb: ['Ребрышки', 'Лопатка', 'Корейка', 'Шея'],
+    fish: ['Филе', 'Целая рыба']
+  };
+
+  function showParts(meat) {
+    alert('Здесь будет выбор частей для ' + meat + ':\n' + partsData[meat].join(', '));
+  }
+</script>
+
 </body>
 </html>
